@@ -1,0 +1,71 @@
+{
+  "dataRoles": [
+    {
+      "displayName": "Quanitative Vairbales",
+      "kind": "Measure",
+      "name": "Values"
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "conditions": [
+        {
+          "Values": {
+              "min": 2,
+              "max": 7
+          }
+      }
+      ],
+      "scriptResult": {
+        "dataInput": {
+          "table": {
+            "rows": {
+              "select": [
+                {
+                  "for": {
+                    "in": "Values"
+                  }
+                }
+              ],
+              "dataReductionAlgorithm": {
+                "top": {}
+              }
+            }
+          }
+        },
+        "script": {
+          "scriptProviderDefault": "R",
+          "scriptOutputType": "png",
+          "source": {
+            "objectName": "rcv_script",
+            "propertyName": "source"
+          },
+          "provider": {
+            "objectName": "rcv_script",
+            "propertyName": "provider"
+          }
+        }
+      }
+    }
+  ],
+  "objects": {
+    "rcv_script": {
+      "properties": {
+        "provider": {
+          "type": {
+            "text": true
+          }
+        },
+        "source": {
+          "type": {
+            "scripting": {
+              "source": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "suppressDefaultTitle": true,
+  "privileges": []
+}
